@@ -5,22 +5,24 @@ export default {
     name: "ButtonTimer",
     data() {
         return {
-            seconds: 0,
+            milliseconds: 0,
         };
     },
     props: {
-        countSeconds: {
+        countMilliseconds: {
             type: Number,
             require: true,
         },
     },
     methods: {
-        decreaseTimer(seconds) {
-            this.seconds = seconds;
+        decreaseTimer(milliseconds) {
+            this.milliseconds = milliseconds;
 
             const timer = setInterval(() => {
-                this.seconds -= 1;
-                if (this.seconds === 0) {
+                if (this.milliseconds >= 1000) {
+                    this.milliseconds -= 1000;
+                }
+                else {
                     clearInterval(timer);
                 }
             }, 1000);
@@ -28,8 +30,8 @@ export default {
     },
     computed: {
         prettyTime() {
-            const minutes = Math.floor(this.seconds / 60);
-            const seconds = this.seconds - minutes * 60;
+            const minutes = Math.floor(this.milliseconds / 1000 / 60);
+            const seconds = Math.floor(this.milliseconds / 1000) - minutes * 60;
 
             const doPrettyTime = (number) => {
                 if (number < 10) {
@@ -43,7 +45,7 @@ export default {
         },
     },
     mounted() {
-        this.decreaseTimer(this.countSeconds);
+        this.decreaseTimer(this.countMilliseconds);
     },
     render() {
         return h("div", { class: "timer" }, [this.prettyTime]);
