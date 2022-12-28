@@ -1,4 +1,4 @@
-.idea<script>
+<script>
 import { h } from "vue";
 import ButtonTimer from "@/components/ButtonTimer.vue";
 import ButtonIcon from "@/components/ButtonIcon.vue";
