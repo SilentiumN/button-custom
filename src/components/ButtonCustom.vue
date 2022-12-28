@@ -1,6 +1,6 @@
 <script>
 import { h } from "vue";
-import ButtonTimer from "@/components/ButtonTimer";
+import ButtonTimer from "@/components/ButtonTimer.vue";
 
 export default {
     props: {
@@ -60,7 +60,7 @@ export default {
                 if (icon) {
                     template.children.push(
                         h("img", {
-                            src: require(`../assets/icons/${icon}.svg`),
+                            src: `@/assets/icons/${icon}.svg`,
                             class: "btn__icon"
                         })
                     );

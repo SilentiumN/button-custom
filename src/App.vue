@@ -1,6 +1,6 @@
 <script>
 import { h } from "vue";
-import ButtonCustom from "@/components/ButtonCustom";
+import ButtonCustom from "@/components/ButtonCustom.vue";
 
 export default {
     render() {
