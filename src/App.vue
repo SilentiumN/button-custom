@@ -19,7 +19,7 @@ export default {
                 h(ButtonCustom, { icon: "pen", theme: "primary" }),
             ]),
             h("div", [
-                h(ButtonCustom, { timer: 180, text: "повторное письмо", disabled: true }),
+                h(ButtonCustom, { timer: 10000, text: " Повторное письмо", theme: "info"}),
             ]),
             h("div", [
                 h(ButtonCustom, { theme: "primary", text: "Отправить письмо" }),
@@ -29,7 +29,7 @@ export default {
                 h(ButtonCustom, { theme: "info", text: "Отправить письмо" }),
                 h(ButtonCustom, { theme: "danger", text: "Отправить письмо" }),
                 h(ButtonCustom, { theme: "action", text: "Отправить письмо" }),
-                h(ButtonCustom, { theme: "info", text: "Отправить письмо", timer: 20, icon: "chevron" }),
+                h(ButtonCustom, { theme: "info", text: "Отправить письмо", timer: 5000, icon: "chevron" }),
             ]),
         ]);
     },

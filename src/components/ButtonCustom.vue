@@ -45,6 +45,7 @@ export default {
                     template.props.class = ["btn"];
                     checkTheme(theme);
                 }
+                template.props.ref = "buttonCustom"
             };
 
             //проверяем наличие темы и устанавливаем класс при необходимости
@@ -69,8 +70,11 @@ export default {
             const checkTimer = (timer) => {
                 if (timer) {
                     template.children.push(
-                        h(ButtonTimer, { countSeconds: timer })
+                        h(ButtonTimer, { countMilliseconds: timer })
                     );
+
+                    template.props.disabled = true;
+                    this.disabledWhenTimerActive(timer);
                 }
             };
 
@@ -90,6 +94,12 @@ export default {
 
             return template;
         },
+
+        disabledWhenTimerActive(timer) {
+            setTimeout(()=> {
+                this.$refs.buttonCustom.disabled = false
+            }, timer)
+        }
     },
 
     render() {
@@ -185,6 +195,7 @@ export default {
     &:disabled {
         background: #efefef;
         color: #767679;
+        cursor: default;
     }
 
     &__icon {
